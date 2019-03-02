@@ -1,38 +1,38 @@
 [A]
 
-left=400
-middle=315
-right=220
+left=416
+middle=312
+right=208
 stick_motion=norm
 channel=0
 
 [E]
 
-left=400
-middle=315
-right=220
+left=416
+middle=312
+right=208
 stick_motion=norm
 channel=1
 
 [T]
 
-left=400
-right=230
+left=418
+right=207
 stick_motion=norm
 channel=2
 
 [R]
 
-left=400
-middle=315
-right=220
+left=417
+middle=312
+right=210
 stick_motion=norm
 channel=3
 
 [U]
 
-gps=390
-failsafe=350
-selectable=250
+gps=385
+failsafe=285
+selectable=245
 channel=4
 
