@@ -35,6 +35,9 @@ int main(int argc, char* argv[]){
 	} else if(std::string(argv[1])=="tleft"){
 		std::cout << "Turning left: " << argv[2] << "\n";
 		naza.fly_turn_left(cf, pca9685, atoi(argv[2]));
+	} else if(std::string(argv[1])=="fly_test"){
+		std::cout << "Fly Test: " << argv[2] << "\n";
+		naza.fly_test(cf, pca9685, atoi(argv[2]));
 	} else if(std::string(argv[1])=="flm"){
 		std::cout << "Setting Flight Mode: " << argv[2] << "\n";
 		naza.set_flight_mode(cf, pca9685, argv[2]);

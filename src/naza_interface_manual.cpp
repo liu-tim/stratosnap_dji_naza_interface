@@ -116,6 +116,20 @@ void naza_interface_manual_c::fly_turn_left(ConfigFile &cf, PCA9685 &pca9685, in
 }
 
 /**
+	fly:
+	1) arms motor, 
+	2) sets throttle to set amount for 5 seconds, 
+	3) enters failsafe mode
+	ONLY USE ON GROUND!
+*/
+void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed){
+	arm_motors(cf, pca9685);
+	fly_throttle(cf, pca9685, speed);
+	sleep(5);
+	set_flight_mode(cf, pca9685, "failsafe");
+}
+
+/**
     arm_motors requires the drone NOT to be in the air!
 		ONLY USE ON GROUND!
 
@@ -128,7 +142,7 @@ void naza_interface_manual_c::arm_motors(ConfigFile &cf, PCA9685 &pca9685){
 	fly_throttle(cf, pca9685, 0);
 	fly_turn_left(cf, pca9685, 100);
 
-	sleep(5);
+	sleep(2);
 
 	set_neutral(cf, pca9685);
 }
