@@ -22,7 +22,7 @@ class naza_interface_manual_c{
 		void fly_right(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_turn_right(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_turn_left(ConfigFile &cf, PCA9685 &pca9685, int speed);
-		void fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed);
+		void fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed, int time);
 
 		void set_neutral(ConfigFile &cf, PCA9685 &pca9685);
 		void recalibrate(ConfigFile &cf, PCA9685 &pca9685);

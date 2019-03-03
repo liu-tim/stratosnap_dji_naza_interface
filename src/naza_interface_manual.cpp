@@ -122,10 +122,12 @@ void naza_interface_manual_c::fly_turn_left(ConfigFile &cf, PCA9685 &pca9685, in
 	3) enters failsafe mode
 	ONLY USE ON GROUND!
 */
-void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed){
-	arm_motors(cf, pca9685);
-	fly_throttle(cf, pca9685, speed);
-	sleep(5);
+void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed, int time){
+	if (speed < 100 && time < 20) {
+		arm_motors(cf, pca9685);
+		fly_throttle(cf, pca9685, speed);
+		sleep(time);
+	}
 	set_flight_mode(cf, pca9685, "failsafe");
 }
 
