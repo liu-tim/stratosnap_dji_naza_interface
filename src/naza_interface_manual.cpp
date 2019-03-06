@@ -128,6 +128,7 @@ void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int spe
 		fly_throttle(cf, pca9685, speed);
 		sleep(time);
 	}
+	fly_throttle(cf, pca9685, 0);
 	set_flight_mode(cf, pca9685, "failsafe");
 }
 
