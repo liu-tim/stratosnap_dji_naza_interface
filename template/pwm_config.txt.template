@@ -1,31 +1,31 @@
 [A]
 
-left=416
-middle=312
-right=208
+left=429
+middle=321
+right=214
 stick_motion=norm
 channel=0
 
 [E]
 
-left=416
-middle=312
-right=208
+left=429
+middle=321
+right=214
 stick_motion=norm
 channel=1
 
 [T]
 
-left=418
-right=207
+left=429
+right=214
 stick_motion=norm
 channel=2
 
 [R]
 
-left=417
-middle=312
-right=210
+left=416
+middle=321
+right=214
 stick_motion=norm
 channel=3
 
