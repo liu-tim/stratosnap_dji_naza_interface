@@ -36,3 +36,9 @@ failsafe=285
 selectable=245
 channel=4
 
+[X]
+
+left=416
+right=235
+stick_motion=norm
+channel=5

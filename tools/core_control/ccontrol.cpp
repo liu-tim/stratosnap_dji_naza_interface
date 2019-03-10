@@ -38,6 +38,9 @@ int main(int argc, char* argv[]){
 	} else if(std::string(argv[1])=="fly_test"){
 		std::cout << "Fly Test: " << argv[2] << "\n";
 		naza.fly_test(cf, pca9685, atoi(argv[2]), atoi(argv[3]));
+	} else if(std::string(argv[1])=="move_gimbal"){
+		std::cout << "Move Gimbal: " << argv[2] << "\n";
+		naza.move_gimbal(cf, pca9685, atoi(argv[2]), atoi(argv[3]));
 	} else if(std::string(argv[1])=="flm"){
 		std::cout << "Setting Flight Mode: " << argv[2] << "\n";
 		naza.set_flight_mode(cf, pca9685, argv[2]);

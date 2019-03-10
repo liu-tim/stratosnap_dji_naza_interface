@@ -18,11 +18,13 @@ class naza_interface_manual_c{
 		void fly_forward(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_back(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_throttle(ConfigFile &cf, PCA9685 &pca9685, int speed);
+		void set_x1(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_left(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_right(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_turn_right(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_turn_left(ConfigFile &cf, PCA9685 &pca9685, int speed);
 		void fly_test(ConfigFile &cf, PCA9685 &pca9685, int speed, int time);
+		void move_gimbal(ConfigFile &cf, PCA9685 &pca9685, int value, int time);
 
 		void set_neutral(ConfigFile &cf, PCA9685 &pca9685);
 		void recalibrate(ConfigFile &cf, PCA9685 &pca9685);
@@ -32,6 +34,7 @@ class naza_interface_manual_c{
 		int calc_pwm_gradient_right(string stick_motion, int speed_in_perc, int left, int middle, int right);
 		int calc_pwm_gradient_left(string stick_motion, int speed_in_perc, int left, int middle, int right);
 		int calc_pwm_gradient_throttle(string stick_motion, int speed_in_perc,int left, int right);
+		int calc_pwm_gradient_x1(string stick_motion, int speed_in_perc,int left, int right);
 };
 
 

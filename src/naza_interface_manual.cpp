@@ -72,6 +72,15 @@ void naza_interface_manual_c::fly_throttle(ConfigFile &cf, PCA9685 &pca9685, int
 }
 
 /**
+    set_x1 sets channel x1 to given percentage value
+*/
+void naza_interface_manual_c::set_x1(ConfigFile &cf, PCA9685 &pca9685, int speed){
+        int rel_pwm=calc_pwm_gradient_x1(cf.Value("X","stick_motion"), speed, cf.Value("X","left"), cf.Value("X","right"));
+        cout << "Setting X1 with Relative PWM signal: " << rel_pwm << " which is " << speed << " \n";
+        pca9685.Write(CHANNEL(cf.Value("X","channel")), VALUE(rel_pwm));
+}
+
+/**
     Only use fly_left in the AIR.
 
     fly_left sets channel A to given percentage value
@@ -132,6 +141,13 @@ void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int spe
 	set_flight_mode(cf, pca9685, "failsafe");
 }
 
+/**
+	move gimbal:
+	sets gimbal position 
+*/
+void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int value, int time){
+	set_x1(cf, pca9685, value);
+}
 /**
     arm_motors requires the drone NOT to be in the air!
 		ONLY USE ON GROUND!
@@ -297,6 +313,36 @@ int naza_interface_manual_c::calc_pwm_gradient_left(string stick_motion, int spe
 }
 
 int naza_interface_manual_c::calc_pwm_gradient_throttle(string stick_motion, int speed_in_perc,int left, int right){
+        float gradient = 0;
+				if(stick_motion=="rev"){
+	        if(right>left){
+	          gradient=right-left;
+						gradient=gradient/100;
+	          gradient=gradient*speed_in_perc;
+						gradient=left-gradient;
+	        } else if(right<left){
+	          gradient=left-right;
+	          gradient=gradient/100;
+	          gradient=gradient*speed_in_perc;
+	          gradient=left-gradient;
+	        }
+				} else if(stick_motion=="norm"){
+					if(right<left){
+						gradient=left-right;
+						gradient=gradient/100;
+						gradient=gradient*speed_in_perc;
+						gradient=right+gradient;
+					} else if(right>left){
+						gradient=right-left;
+						gradient=gradient/100;
+						gradient=gradient*speed_in_perc;
+						gradient=right-gradient;
+					}
+				}
+        return gradient;
+}
+
+int naza_interface_manual_c::calc_pwm_gradient_x1(string stick_motion, int speed_in_perc,int left, int right){
         float gradient = 0;
 				if(stick_motion=="rev"){
 	        if(right>left){
