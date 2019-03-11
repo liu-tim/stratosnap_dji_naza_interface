@@ -145,7 +145,7 @@ void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int spe
 	move gimbal:
 	sets gimbal position 
 */
-void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int value, int time){
+void naza_interface_manual_c::move_gimbal(ConfigFile &cf, PCA9685 &pca9685, int value, int time){
 	set_x1(cf, pca9685, value);
 }
 /**
