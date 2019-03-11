@@ -143,7 +143,7 @@ void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int spe
 
 /**
 	move gimbal:
-	sets gimbal position 
+	moves gimbal up or down 
 	value:
 		1: move up
 		0: move down
