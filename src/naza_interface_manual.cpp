@@ -149,13 +149,14 @@ void naza_interface_manual_c::fly_test(ConfigFile &cf, PCA9685 &pca9685, int spe
 		0: move down
 */
 void naza_interface_manual_c::move_gimbal(ConfigFile &cf, PCA9685 &pca9685, int value, int time){
-	if (value == 1) {
-		set_x1(cf, pca9685, 100);
-	} 
-	if (value == 0) {
-		set_x1(cf, pca9685, 0);
-	}
-	sleep(time);
+		set_x1(cf, pca9685, value);
+	// if (value == 1) {
+	// 	set_x1(cf, pca9685, 100);
+	// } 
+	// if (value == 0) {
+	// 	set_x1(cf, pca9685, 0);
+	// }
+	// sleep(time);
 }
 /**
     arm_motors requires the drone NOT to be in the air!
